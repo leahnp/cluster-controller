@@ -7,11 +7,25 @@ image:
   # TODO version this
   # tag: lastest
   pullPolicy: IfNotPresent
+
 service:
-  name: cluster-controller
+  # controller
   type: ClusterIP
   externalPort: 80
   internalPort: 80
+
+  # CRD
+  name: krakenclusters.samsung-cnct.com
+  group: samsung-cnct.com
+  version: v1
+  scope: Namespaced
+  names:
+    plural: krakenclusters
+    singular: krakencluster
+    kind: krakencluster
+    shortnames: kc
+
+# controller pod
 resources:
   limits:
    cpu: 100m
