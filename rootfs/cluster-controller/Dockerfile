@@ -3,9 +3,7 @@ FROM golang:1.8
 WORKDIR /go/src/app
 COPY . .
 
-RUN curl https://glide.sh/get | sh
-
-RUN ls -ll
-RUN glide install
+RUN go get -d -v ./...
+RUN go install -v ./...
 
 ENTRYPOINT go run ./*.go -kubeconf=""
