@@ -8,28 +8,14 @@ image:
   # tag: lastest
   pullPolicy: IfNotPresent
 
+krakenClusterShortNames: kc
+
 service:
-  # controller
   type: ClusterIP
   externalPort: 80
   internalPort: 80
 
-  # CRD
-  name: krakenclusters.samsung-cnct.com
-  group: samsung-cnct.com
-  version: v1
-  scope: Namespaced
-  names:
-    plural: krakenclusters
-    singular: krakencluster
-    kind: krakencluster
-    shortnames: kc
-
-# controller pod
-resources:
-  limits:
-   cpu: 100m
-   memory: 128Mi
-  requests:
-   cpu: 100m
-   memory: 128Mi
+resources: {}
+  # requests:
+  #   cpu: 10m
+  #   memory: 32Mi
